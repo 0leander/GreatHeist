@@ -391,7 +391,6 @@ GameObject:
   - component: {fileID: 243589845}
   - component: {fileID: 243589847}
   - component: {fileID: 243589846}
-  - component: {fileID: 243589849}
   - component: {fileID: 243589848}
   - component: {fileID: 243589850}
   m_Layer: 5
@@ -470,87 +469,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alarmBool: 0
---- !u!82 &243589849
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 243589844}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300001, guid: ca71259be6348485abbe393157796cb8,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8061f6ecb5aa7ba4e937355a3fddd8a8, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.519
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &243589850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,7 +1244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentNoise: 0
-  _alarmTrigger: {fileID: 0}
+  _alarmTrigger: {fileID: 243589848}
 --- !u!1001 &781074293
 Prefab:
   m_ObjectHideFlags: 0
