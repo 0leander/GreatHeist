@@ -11,29 +11,30 @@ public class VRmovement : MonoBehaviour {
     public GameObject[] invetory;
     public GameObject[] invetorySlots;
     private int inventoryCount;
+    private bool gaze = false;
 
     public bool moveForward;
     public MovementMethod wayToMove;
 
-    public enum MovementMethod{
+    public enum MovementMethod {
         LookWalk,
         Autowalk,
         Teleport
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         cc = GetComponent<CharacterController>();
         invetory = new GameObject[4];
         inventoryCount = 0;
-	}
+    }
 
     public void teleport(GameObject g) {
         this.transform.position = g.transform.position;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
 
         if (wayToMove == MovementMethod.LookWalk)   //Just for the lols
         {
@@ -54,9 +55,10 @@ public class VRmovement : MonoBehaviour {
 
         if (wayToMove == MovementMethod.Autowalk)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && !gaze)
             {
                 moveForward = !moveForward;
+                Debug.Log(gaze);
             }
 
             if (moveForward)
@@ -65,8 +67,20 @@ public class VRmovement : MonoBehaviour {
 
                 cc.SimpleMove(forward * speed);
             }
+
+            
         }
-	}
+    }
+
+    public void gazeAt() {
+        Debug.Log("Gazin");
+        gaze = true;
+    }
+
+    public void stopGaze() {
+        Debug.Log("stop Gazin");
+        gaze = false;
+    }
 
     public void PickUp(GameObject item) {
         if (inventoryCount < invetory.Length)
@@ -75,6 +89,9 @@ public class VRmovement : MonoBehaviour {
             invetorySlots[inventoryCount].SetActive(true);
             inventoryCount++;
             item.SetActive(false);
+
+            Debug.Log("stop Gazin");
+            gaze = false;
         }
         else {
             Debug.Log("INVENTORY FULL");
