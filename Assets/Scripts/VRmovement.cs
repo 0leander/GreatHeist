@@ -14,13 +14,6 @@ public class VRmovement : MonoBehaviour {
     private bool gaze = false;
 
     public bool moveForward;
-    public MovementMethod wayToMove;
-
-    public enum MovementMethod {
-        LookWalk,
-        Autowalk,
-        Teleport
-    }
 
     // Use this for initialization
     void Start() {
@@ -36,39 +29,21 @@ public class VRmovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (wayToMove == MovementMethod.LookWalk)   //Just for the lols
+
+        if (Input.GetButton("Fire1") && !gaze)
         {
-            if (vrCam.eulerAngles.x >= toggleAngle && vrCam.eulerAngles.x <= 90.0f)
-            {
-                moveForward = true;
-            }
-            else {
-                moveForward = false;
-            }
-
-            if (moveForward) {
-                Vector3 forward = vrCam.TransformDirection(Vector3.forward);
-
-                cc.SimpleMove(forward * speed);
-            }
+            moveForward = true;
+            Debug.Log(moveForward);
+        }
+        else {
+            moveForward = false;
         }
 
-        if (wayToMove == MovementMethod.Autowalk)
+        if (moveForward)
         {
-            if (Input.GetButtonDown("Fire1") && !gaze)
-            {
-                moveForward = !moveForward;
-                Debug.Log(gaze);
-            }
+            Vector3 forward = vrCam.TransformDirection(Vector3.forward);
 
-            if (moveForward)
-            {
-                Vector3 forward = vrCam.TransformDirection(Vector3.forward);
-
-                cc.SimpleMove(forward * speed);
-            }
-
-            
+            cc.SimpleMove(forward * speed);
         }
     }
 
